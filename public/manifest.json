@@ -1,0 +1,18 @@
+{
+  "name": "Arena Africa — Prediction Market",
+  "short_name": "Arena",
+  "description": "Africa & Global peer-to-peer prediction market with Mobile Money, USSD, and Chama pools.",
+  "start_url": "/mobile",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#10b981",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

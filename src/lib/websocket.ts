@@ -1,0 +1,1 @@
+// This file is deprecated. Use src/lib/socketio.ts for Socket.IO implementation.

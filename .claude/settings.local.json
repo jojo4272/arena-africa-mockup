@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(docker exec sysera-postgres-1 *)",
+      "PowerShell(npm install *)",
+      "PowerShell(npx drizzle-kit push --config=drizzle.config.json)",
+      "PowerShell(docker port sysera-postgres-1 *)",
+      "PowerShell(docker exec *)",
+      "PowerShell(npm run *)",
+      "PowerShell(Start-Sleep -Seconds 7; Write-Host \"7 seconds elapsed, starting frontend server...\"; Start-Process powershell -ArgumentList \"-NoExit\", \"-Command\", \"npm run dev\" -WindowStyle Normal; Start-Sleep -Seconds 3; Write-Host \"Launching Chrome...\"; Start-Process \"chrome\" -ArgumentList \"http://localhost:3000\")",
+      "PowerShell(npm list *)",
+      "PowerShell(pwsh -Command \"cd E:\\\\projects\\\\predictions && npx next build 2>&1\" > build_output.txt 2>&1)"
+    ]
+  }
+}
