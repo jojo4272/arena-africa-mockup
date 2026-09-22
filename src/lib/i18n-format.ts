@@ -1,22 +1,19 @@
-// Format.js based internationalization utilities
+// Native Intl-based internationalization utilities
 // Provides advanced formatting for relative time, date, number, and pluralization
-
-import { IntlRelativeFormat } from '@formatjs/intl-relativetimeformat';
-import { IntlPluralRules } from '@formatjs/intl-pluralrules';
 
 // Use native Intl APIs for date and number formatting
 // Cache for formatters per locale
-const relativeFormatCache = new Map<string, IntlRelativeFormat>();
+const relativeFormatCache = new Map<string, Intl.RelativeTimeFormat>();
 const dateTimeFormatCache = new Map<string, Map<string, Intl.DateTimeFormat>>();
 const numberFormatCache = new Map<string, Map<string, Intl.NumberFormat>>();
-const pluralRulesCache = new Map<string, IntlPluralRules>();
+const pluralRulesCache = new Map<string, Intl.PluralRules>();
 
 /**
  * Get a relative time formatter for the given locale
  */
-export function getRelativeFormat(locale: string): IntlRelativeFormat {
+export function getRelativeFormat(locale: string): Intl.RelativeTimeFormat {
   if (!relativeFormatCache.has(locale)) {
-    relativeFormatCache.set(locale, new IntlRelativeFormat(locale, { style: 'long' }));
+    relativeFormatCache.set(locale, new Intl.RelativeTimeFormat(locale, { style: 'long' }));
   }
   return relativeFormatCache.get(locale)!;
 }
@@ -26,7 +23,7 @@ export function getRelativeFormat(locale: string): IntlRelativeFormat {
  */
 export function formatRelativeTime(
   value: number,
-  unit: IntlRelativeFormatUnit,
+  unit: Intl.RelativeTimeFormatUnit,
   locale: string
 ): string {
   return getRelativeFormat(locale).format(value, unit);
@@ -89,9 +86,9 @@ export function formatNumber(
 /**
  * Get plural rules for the given locale
  */
-export function getPluralRules(locale: string): IntlPluralRules {
+export function getPluralRules(locale: string): Intl.PluralRules {
   if (!pluralRulesCache.has(locale)) {
-    pluralRulesCache.set(locale, new IntlPluralRules(locale));
+    pluralRulesCache.set(locale, new Intl.PluralRules(locale));
   }
   return pluralRulesCache.get(locale)!;
 }

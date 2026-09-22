@@ -10,7 +10,7 @@ export default function RootLayoutClient({ children }: { children: ReactNode }) 
   return (
     <AppErrorBoundary>
       <QueryProvider>
-        <SocketIOProvider socketUrl="http://localhost:3001">
+        <SocketIOProvider socketUrl={process.env.NEXT_PUBLIC_SOCKET_URL || "http://localhost:3001"}>
           <LocaleProvider>
             {children}
           </LocaleProvider>

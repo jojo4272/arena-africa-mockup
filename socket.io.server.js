@@ -2,7 +2,8 @@ const { Server } = require("socket.io");
 const { getMarkets, getUserById, getUserPredictions, getUserTransactions } = require("./src/app/actions");
 
 // Initialize Socket.IO server
-const io = new Server(3001, {
+const PORT = process.env.PORT || 3001;
+const io = new Server(PORT, {
   cors: {
     origin: "*",
     methods: ["GET", "POST"]
@@ -127,4 +128,4 @@ module.exports = {
 };
 
 // Keep server alive
-console.log("Socket.IO server running on port 3001");
+console.log(`Socket.IO server running on port ${PORT}`);

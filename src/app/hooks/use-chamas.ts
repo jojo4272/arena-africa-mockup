@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { getChamas } from "@/actions";
+import { getChamas } from "@/app/actions";
 
 export const useChamas = () => {
   return useQuery({

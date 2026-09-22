@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { getMarkets } from "@/actions";
+import { getMarkets } from "@/app/actions";
 
 export const useMarkets = () => {
   return useQuery({

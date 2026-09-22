@@ -41,11 +41,11 @@ import {
 } from "./actions";
 import ProfileSwitcher from "@/components/ProfileSwitcher";
 import ThemeToggle from "@/components/ThemeToggle";
-import { useUsers } from "@/hooks/use-users";
-import { useMarkets } from "@/hooks/use-markets";
-import { useChamas } from "@/hooks/use-chamas";
-import { useUserPredictions } from "@/hooks/use-user-predictions";
-import { useUserTransactions } from "@/hooks/use-user-transactions";
+import { useUsers } from "@/app/hooks/use-users";
+import { useMarkets } from "@/app/hooks/use-markets";
+import { useChamas } from "@/app/hooks/use-chamas";
+import { useUserPredictions } from "@/app/hooks/use-user-predictions";
+import { useUserTransactions } from "@/app/hooks/use-user-transactions";
 
 interface DashboardProps {
   // Removed initial data props - now fetched via React Query
