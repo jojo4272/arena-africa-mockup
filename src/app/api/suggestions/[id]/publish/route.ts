@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { db } from '@/db';
-import { marketSuggestions, markets } from '@/db/schema';
+import { marketSuggestions, markets, suggestionReviews } from '@/db/schema';
 import { eq, and } from 'drizzle-orm';
 import { requireUser } from '@/lib/guard';
 import { z } from 'zod';
@@ -8,9 +8,10 @@ import { z } from 'zod';
 // POST /api/suggestions/[id]/publish - Create a live market from an approved suggestion
 export async function POST(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params;
     const user = await requireUser();
 
     // Check if user is moderator or admin
@@ -23,7 +24,7 @@ export async function POST(
       return NextResponse.json({ error: 'Unauthorized' }, { status: 403 });
     }
 
-    const suggestionId = parseInt(params.id);
+    const suggestionId = parseInt(id);
     if (isNaN(suggestionId)) {
       return NextResponse.json(
         { error: 'Invalid suggestion ID' },

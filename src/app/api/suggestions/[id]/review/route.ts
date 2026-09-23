@@ -8,9 +8,10 @@ import { z } from 'zod';
 // POST /api/suggestions/[id]/review - Approve or reject a suggestion
 export async function POST(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params;
     const user = await requireUser();
 
     // Check if user is moderator or admin
@@ -23,7 +24,7 @@ export async function POST(
       return NextResponse.json({ error: 'Unauthorized' }, { status: 403 });
     }
 
-    const suggestionId = parseInt(params.id);
+    const suggestionId = parseInt(id);
     if (isNaN(suggestionId)) {
       return NextResponse.json(
         { error: 'Invalid suggestion ID' },
