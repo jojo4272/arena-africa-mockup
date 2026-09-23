@@ -30,6 +30,7 @@ import {
   Code
 } from "lucide-react";
 import { getTranslations, type Locale, LOCALE_NAMES, LOCALE_FLAGS } from "@/lib/i18n";
+import { formatNumber } from "@/lib/i18n-format";
 import {
   getUserById,
   createMarket,
