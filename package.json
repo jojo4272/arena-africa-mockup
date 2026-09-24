@@ -13,7 +13,7 @@
     "test:ui": "vitest --ui",
     "test:coverage": "vitest --coverage",
     "test:e2e": "playwright test",
-    "db:push": "drizzle-kit push --config=drizzle.config.json && psql $env:DATABASE_URL -f src/db/indexes.sql",
+    "db:push": "drizzle-kit push --config=drizzle.config.ts && psql $env:DATABASE_URL -f src/db/indexes.sql",
     "start:socket": "tsx socket.io.server.js"
   },
   "dependencies": {
