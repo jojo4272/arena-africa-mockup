@@ -1,6 +1,6 @@
 "use client";
 
-import { useLayoutEffect, useState } from "react";
+import { useLayoutEffect, useEffect, useState } from "react";
 import { Sun, Moon } from "lucide-react";
 
 const STORAGE_KEY = "arena-theme";

@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState, useCallback } from 'react';
-import { useSocket, SOCKET_EVENTS } from '@/lib/socketio';
+import { useSocket, SOCKET_EVENTS, type SocketEventType } from '@/lib/socketio';
 import { useNotification } from '@/components/NotificationProvider';
 
 interface SocketIOProviderProps {
@@ -55,7 +55,7 @@ export default function SocketIOProvider({ children, socketUrl }: SocketIOProvid
   }, [subscribe, addToast]);
 
   // Enhanced send function with error handling
-  const safeSend = useCallback((eventType: string, data: any) => {
+  const safeSend = useCallback((eventType: SocketEventType, data: any) => {
     try {
       send(eventType, data);
     } catch (error) {

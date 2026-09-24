@@ -41,6 +41,14 @@ export function NotificationProvider({ children }: { children: React.ReactNode }
     return Math.random().toString(36).substr(2, 9);
   }, []);
 
+  // Remove a notification by ID
+  const removeNotification = useCallback(
+    (id: string) => {
+      setNotifications((prev) => prev.filter((n) => n.id !== id));
+    },
+    []
+  );
+
   // Add a toast notification (ephemeral)
   const addToast = useCallback(
     (notification: Omit<Notification, "id" | "timestamp" | "type"> & { type?: "toast" }) => {
@@ -48,7 +56,6 @@ export function NotificationProvider({ children }: { children: React.ReactNode }
       const newNotification: Notification = {
         id,
         type: "toast",
-        message: notification.message,
         timestamp: new Date(),
         ...notification,
       };
@@ -75,7 +82,6 @@ export function NotificationProvider({ children }: { children: React.ReactNode }
       const newNotification: Notification = {
         id,
         type: "persistent",
-        message: notification.message,
         timestamp: new Date(),
         read: false,
         ...notification,
@@ -91,14 +97,6 @@ export function NotificationProvider({ children }: { children: React.ReactNode }
       setNotifications((prev) =>
         prev.map((n) => (n.id === id ? { ...n, read: true } : n))
       );
-    },
-    []
-  );
-
-  // Remove a notification by ID
-  const removeNotification = useCallback(
-    (id: string) => {
-      setNotifications((prev) => prev.filter((n) => n.id !== id));
     },
     []
   );

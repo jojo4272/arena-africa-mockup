@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect } from "react";
+import React, { createContext, useContext, useState, useEffect } from "react";
 import { type Locale } from "@/lib/i18n";
 
 interface LocaleContextType {

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import "./globals.css";
 import { initSentry } from "@/lib/sentry";
+import RootLayoutClient from "./RootLayoutClient";
 
 // Initialize Sentry
 initSentry();

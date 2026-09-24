@@ -109,10 +109,6 @@ export default function MobileApp() {
                 <MobileHomeScreen
                   user={userData}
                   markets={markets}
-                  locale={locale}
-                  setLocale={setLocale}
-                  userId={userId}
-                  setUserId={setUserId}
                   refresh={refreshAll}
                   currencySymbol={currencySymbols[userData?.currency] || "KSh"}
                 />

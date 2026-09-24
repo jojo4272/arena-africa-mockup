@@ -16,7 +16,7 @@ interface Props {
 export default function MobileHomeScreen({
   user, markets, refresh, currencySymbol
 }: Props) {
-  const { locale } = useLocale();
+  const { locale, setLocale } = useLocale();
   const t = getTranslations(locale);
   const [category, setCategory] = useState<string>("all");
   const [selectedMarket, setSelectedMarket] = useState<any | null>(null);
@@ -50,7 +50,7 @@ export default function MobileHomeScreen({
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          userId,
+          userId: user.id,
           marketId: selectedMarket.id,
           outcome,
           amount,

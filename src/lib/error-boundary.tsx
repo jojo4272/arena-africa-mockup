@@ -26,7 +26,7 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
     // Send error to Sentry
     if (Sentry) {
       Sentry.captureException(error, {
-        extra: errorInfo,
+        extra: { componentStack: errorInfo.componentStack },
         // Optionally add more context
         contexts: {
           react: {

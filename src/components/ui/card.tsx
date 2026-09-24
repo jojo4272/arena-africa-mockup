@@ -23,13 +23,13 @@ const cardVariants = cva(
   }
 );
 
-interface CardProps extends React.HTMLAttributes<HTMLElement> {
+interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
   variant?: VariantProps<typeof cardVariants>["variant"];
   className?: string;
 }
 
 const Card = React.forwardRef<
-  HTMLElement,
+  HTMLDivElement,
   CardProps
 >(({ className, variant, ...props }, ref) => {
   return (

@@ -210,7 +210,7 @@ export default function PredictionDashboard() {
         <h1>Prediction Dashboard (React Query Refactor)</h1>
         <p>Users: {usersData.length}</p>
         <p>Markets: {marketsData.length}</p>
-        <p>Chamas: {chasasData.length}</p>
+        <p>Chamas: {chamasData.length}</p>
         <p>Predictions: {predictionsData.length}</p>
         <p>Transactions: {transactionsData.length}</p>
         {/* Original component JSX would go here */}

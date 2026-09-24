@@ -190,7 +190,7 @@ export async function runDataSources(): Promise<number> {
         .set({
           lastFetchAt: new Date(),
           lastErrorAt: new Date(),
-          lastError: error.message,
+          lastError: error instanceof Error ? error.message : String(error),
         })
         .where(eq(dataSources.id, source.id));
     }

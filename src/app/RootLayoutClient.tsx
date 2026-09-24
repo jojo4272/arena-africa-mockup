@@ -3,7 +3,7 @@
 import type { ReactNode } from "react";
 import QueryProvider from "./query-provider";
 import SocketIOProvider from "./socketio-provider";
-import AppErrorBoundary from "./error-boundary";
+import { AppErrorBoundary } from "./error-boundary";
 import { LocaleProvider } from "@/lib/locale-context";
 
 export default function RootLayoutClient({ children }: { children: ReactNode }) {

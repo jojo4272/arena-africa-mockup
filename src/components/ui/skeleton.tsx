@@ -17,7 +17,7 @@ const skeletonVariants = cva(
   }
 );
 
-interface SkeletonProps extends React.HTMLAttributes<HTMLElement> {
+interface SkeletonProps extends React.HTMLAttributes<HTMLDivElement> {
   variant?: VariantProps<typeof skeletonVariants>["variant"];
   className?: string;
   height?: string | number;
@@ -25,7 +25,7 @@ interface SkeletonProps extends React.HTMLAttributes<HTMLElement> {
 }
 
 const Skeleton = React.forwardRef<
-  HTMLElement,
+  HTMLDivElement,
   SkeletonProps
 >(({ className, variant, height, width, ...props }, ref) => {
   return (
