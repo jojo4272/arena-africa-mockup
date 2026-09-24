@@ -77,7 +77,7 @@ export function NotificationProvider({ children }: { children: React.ReactNode }
 
   // Add a persistent notification (stored in the notification center)
   const addNotification = useCallback(
-    (notification: Omit<Notification, "id" | "timestamp"> & { type?: "persistent" }) => {
+    (notification: Omit<Notification, "id" | "timestamp" | "type"> & { type?: "persistent" }) => {
       const id = generateId();
       const newNotification: Notification = {
         id,
