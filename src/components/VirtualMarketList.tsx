@@ -1,5 +1,5 @@
 import React from "react";
-import { VariableSizeList as List } from "react-window";
+import { FixedSizeList as List } from "react-window";
 import { MarketItem } from "./MarketItem";
 import { useMarkets } from "@/app/hooks/use-markets";
 
